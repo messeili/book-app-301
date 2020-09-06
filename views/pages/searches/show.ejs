@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <% data.forEach(item =>{ %>
+    <div>
+        <img src="<%= item.image %>" alt="">
+        <h2><%= item.title %></h2>
+        <h3><%= item.author %></h3>
+        <p><%= item.discription %></p>
+    </div>
+    <% })%>
+
+</body>
+
+</html>
