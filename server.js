@@ -45,7 +45,7 @@ function Book(data) {
     this.title = data.volumeInfo.title;
     this.image = data.volumeInfo.imageLinks.thumbnail || `https://i.imgur.com/J5LVHEL.jpg`;
     this.author = data.volumeInfo.authors || `There is no Authors`;
-    this.discription = data.volumeInfo.discription || `There is no discription`
+    this.discription = data.volumeInfo.description || `There is no discription`
 
 }
 
