@@ -14,9 +14,11 @@
     <div>
         <img src="<%= item.image_url %>" alt="">
         <h2><%= item.title %></h2>
-        <h3><%= item.author %></h3>
-        <h3><%= item.isbn %></h3>
-        <p><%= item.description %></p>
+        <button>
+            <a href="/getBook/<%= item.id %>">Details</a>
+        </button>
+
+
     </div>
 
     <% })%>
