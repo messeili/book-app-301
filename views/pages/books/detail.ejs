@@ -19,6 +19,21 @@
         <button>
             <a href="/">Home</a>
         </button>
+        <button id="update">Update Book</button>
+        <form action="/deleteBook/<%= bookDetails.id %>?_method=DELETE" method="POST">
+            <button>
+                Delete
+            </button>
+        </form>
+
+        <form action="/updateBook/<%= bookDetails.id %>?_method=PUT" method="POST">
+            <input type="text" readonly='readonly' name="image_url" id="title" value="<%= bookDetails.image_url %>">
+            <input type="text" name="author" id="title" value="<%= bookDetails.author %>">
+            <input type="text" name="title" value="<%= bookDetails.title %>">
+            <input type="text" readonly='readonly' name="isbn" id="title" value="<%= bookDetails.isbn%>">
+            <textarea name="description" id='author' rows="30" cols="10"><%= bookDetails.description %> </textarea>
+            <input type="submit" value="Add this Book">
+        </form>
 
 
     </div>
