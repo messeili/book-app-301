@@ -135,9 +135,8 @@ function showBookHandler(req, res) {
 function Book(data) {
     this.author = data.volumeInfo.authors || `There is no Authors`;
     this.title = data.volumeInfo.title;
-    // this.isbn = data.volumeInfo.industryIdentifiers[0].identifier || 'there is no isbn';
     this.isbn = data.volumeInfo.industryIdentifiers ? data.volumeInfo.industryIdentifiers[0].identifier || 'There is no isbn found' : 'There is no isbn found';
-    this.image_url = data.volumeInfo.imageLinks.thumbnail || `https://i.imgur.com/J5LVHEL.jpg`;
+    this.image_url = data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail || `https://i.imgur.com/J5LVHEL.jpg` : `https://i.imgur.com/J5LVHEL.jpg`;
     this.description = data.volumeInfo.description || `There is no description`;
 }
 
