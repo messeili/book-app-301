@@ -9,7 +9,11 @@
 </head>
 
 <body>
-    <button><a href="/searches/new">Hello world</a></button>
+
+    <p>BOOKS</p>
+    <p>No. of books <%= bookCount%></p>
+
+    <button><a href="/searches/new">Search for Books</a></button>
     <% booksArr.forEach(item =>{ %>
     <div>
         <img src="<%= item.image_url %>" alt="">
