@@ -5,28 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../styles.css">
+    <%- include('../../layouts/links') %>
+    <link rel="stylesheet" href="../../../styles/rest.css" />
+    <link rel="stylesheet" href="../../../styles/base.css" />
 </head>
 
 <body>
-
-    <p>BOOKS</p>
-    <p>No. of books <%= bookCount%></p>
-
-    <button><a href="/searches/new">Search for Books</a></button>
-    <% booksArr.forEach(item =>{ %>
-    <div>
-        <img src="<%= item.image_url %>" alt="">
-        <h2><%= item.title %></h2>
-        <button>
-            <a href="/getBook/<%= item.id %>">Details</a>
-        </button>
-
-
+    <%- include('../../layouts/header') %>
+    <div id="mainTitle">
+        <p><span id="numberOfBooks">BOOKS</span> </p>
+        <p>No. of books <%= bookCount%></p>
     </div>
+    <div class="container column">
+        <!-- <button><a href="/searches/new">Search for Books</a></button> -->
+        <% booksArr.forEach(item =>{ %>
+        <div class="book_container">
+            <img src="<%= item.image_url %>" alt="">
+            <h2><%= item.title %></h2>
+            <form action="/getBook/<%=item.id%>" method="GET">
+                <input type="submit" value="View Details" />
+            </form>
 
-    <% })%>
 
+        </div>
+        <% });%>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../js/app.js"></script>
 </body>
 
 </html>
