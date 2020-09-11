@@ -5,39 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <%- include('../../layouts/links') %>
+    <link rel="stylesheet" href="../../../styles/rest.css" />
+    <link rel="stylesheet" href="../../../styles/base.css" />
 </head>
 
 <body>
+    <%- include('../../layouts/header') %>
+    <div class="container column">
+        <div class="book_container">
+            <img src="<%= bookDetails.image_url %>" alt="">
+            <h2><%= bookDetails.title %></h2>
+            <h3><%= bookDetails.author %></h3>
+            <h3><%= bookDetails.isbn %></h3>
+            <p><%= bookDetails.description %></p>
 
-    <div>
-        <img src="<%= bookDetails.image_url %>" alt="">
-        <h2><%= bookDetails.title %></h2>
-        <h3><%= bookDetails.author %></h3>
-        <h3><%= bookDetails.isbn %></h3>
-        <p><%= bookDetails.description %></p>
+            <!-- <button> <a href="/">Home</a></button> -->
+            <div class="row btnOptions">
+                <form action="/deleteBook/<%= bookDetails.id %>?_method=DELETE" method="POST">
+                    <button type="submit"> Delete </button>
+                </form>
+                <button id="updateBtn">Update Book</button>
+            </div>
+        </div>
+    </div>
 
-        <button>
-            <a href="/">Home</a>
-        </button>
-        <button id="update">Update Book</button>
-        <form action="/deleteBook/<%= bookDetails.id %>?_method=DELETE" method="POST">
-            <button>
-                Delete
-            </button>
-        </form>
-
-        <form action="/updateBook/<%= bookDetails.id %>?_method=PUT" method="POST">
+    <div id="updateForm_container" class="row">
+        <form action="/updateBook/<%= bookDetails.id %>?_method=PUT" method="POST" class="column" id="updateForm">
             <input type="text" readonly='readonly' name="image_url" id="title" value="<%= bookDetails.image_url %>">
             <input type="text" name="author" id="title" value="<%= bookDetails.author %>">
             <input type="text" name="title" value="<%= bookDetails.title %>">
             <input type="text" readonly='readonly' name="isbn" id="title" value="<%= bookDetails.isbn%>">
-            <textarea name="description" id='author' rows="30" cols="10"><%= bookDetails.description %> </textarea>
+            <textarea name="description" id='author' rows="10" cols="30"><%= bookDetails.description %> </textarea>
             <input type="submit" value="Add this Book">
         </form>
-
-
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../../js/app.js"></script>
 </body>
 
 </html>
